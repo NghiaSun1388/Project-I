@@ -1,0 +1,37 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# C++ Backend build files
+backend/build/
+backend/bin/
+backend/obj/
+*.o
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Frontend dependencies (nếu dùng Node.js/React/Vue sau này)
+node_modules/
+dist/
+build/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.local

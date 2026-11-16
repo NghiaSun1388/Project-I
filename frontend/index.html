@@ -4,37 +4,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>NewsTok - Tin tức mỗi ngày</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
-<div class="navbar">
-    <div class="nav-item">Trang chủ</div>
-    <div class="nav-item">Công nghệ</div>
-    <div class="nav-item">Kinh tế</div>
-    <div class="nav-item">Thế giới</div>
-</div>
-
-
 <body>
-    <div class="header">
-        <h1>NewsTok</h1>
-        <p>Tin tức được tóm tắt mỗi ngày.</p>
-    </div>
 
-    <div class="news-section">
-        <h2>Tin tức nổi bật</h2>
+    <!-- HEADER -->
+    <header class="header">
 
-        <div class="news-card">
-            <h3>Tin công nghệ</h3>
-            <p>Cập nhật tin tức công nghệ mới nhất.</p>
+        <div class="logo">
+            News<span>Tok</span>
         </div>
 
-        <div class="news-card">
-            <h3>Tin kinh tế</h3>
-            <p>Cập nhật tin tức kinh tế mới nhất.</p>
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Tìm kiếm tin tức..."
+            >
+
+            <button id="searchButton" aria-label="Tìm kiếm">
+                ⌕
+            </button>
         </div>
-    </div>
+
+        <div class="header-right">
+            Khám phá tin tức mỗi ngày
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <!-- WELCOME -->
+        <section class="welcome">
+
+            <div>
+                <p class="welcome-label">
+                    TIN TỨC MỖI NGÀY
+                </p>
+
+                <h1>
+                    Cập nhật thế giới,<br>
+                    theo cách của bạn.
+                </h1>
+
+                <p class="welcome-description">
+                    Những tin tức đáng chú ý được tóm tắt
+                    ngắn gọn, giúp bạn nắm bắt thông tin
+                    nhanh chóng.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- NEWS SECTION -->
+        <section class="news-section" id="newsSection">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Khám phá tin tức</h2>
+
+                    <p>
+                        Những câu chuyện đang được quan tâm
+                    </p>
+                </div>
+
+                <button class="feed-open-btn" id="openFeed">
+                    ▶ Xem News Feed
+                </button>
+
+            </div>
+
+
+            <!-- CATEGORIES -->
+            <nav class="categories" id="categoryList">
+
+                <button
+                    class="category active"
+                    data-category="Tất cả">
+                    Tất cả
+                </button>
+
+                <button
+                    class="category"
+                    data-category="Công nghệ">
+                    Công nghệ
+                </button>
+
+                <button
+                    class="category"
+                    data-category="Kinh tế">
+                    Kinh tế
+                </button>
+
+                <button
+                    class="category"
+                    data-category="Thế giới">
+                    Thế giới
+                </button>
+
+                <button
+                    class="category"
+                    data-category="Khoa học">
+                    Khoa học
+                </button>
+
+            </nav>
+
+
+            <!-- NEWS GRID -->
+            <div class="news-grid" id="newsGrid">
+                <!-- JavaScript hiển thị bài báo tại đây -->
+            </div>
+
+            <p class="empty-message" id="emptyMessage" hidden>
+                Không tìm thấy bài báo phù hợp.
+            </p>
+
+        </section>
+
+
+        <!-- NEWS FEED -->
+        <section class="feed-view" id="feedView" hidden>
+
+            <div class="feed-header">
+
+                <h2>NewsTok Feed</h2>
+
+                <button
+                    id="closeFeed"
+                    class="feed-close-btn">
+                    ✕ Đóng Feed
+                </button>
+
+            </div>
+
+            <div
+                class="feed-container"
+                id="feedContainer">
+                <!-- JavaScript hiển thị Feed tại đây -->
+            </div>
+
+            <p
+                class="empty-message"
+                id="feedEmptyMessage"
+                hidden>
+                Không có bài báo phù hợp.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            © 2026 NewsTok. Tin tức trong tầm tay.
+        </p>
+
+    </footer>
+
 </body>
 </html>

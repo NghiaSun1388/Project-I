@@ -1,75 +1,565 @@
 
-/* Chung */
-body {
+/* ==============================
+   1. GLOBAL
+============================== */
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background-color: #f2f4f8;
-    color: #222;
+    background-color: #f5f6fa;
+    color: #1e293b;
 }
 
-/*đầu trang */
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* ==============================
+   2. HEADER
+============================== */
+
 .header {
-    background-color: #172554;
-    color: white;
-    padding: 25px;
-    text-align: center;
-}
-
-/* tin tức */
-.news-section {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-}
-
-/* Thẻ báo */
-.news-card {
+    height: 75px;
     background-color: white;
 
-    padding: 40px;
-    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    border: 2px solid #2563eb;
-    border-radius: 16px;
+    padding: 0 8%;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-/* title báo */
-.news-card h3 {
-    color: #1d4ed8;
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e293b;
 }
-/* flex */
-.navbar {
+
+.logo span {
+    color: #2563eb;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    width: 350px;
+
+    background-color: #f1f5f9;
+    border-radius: 25px;
+
+    padding: 5px 12px;
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 8px;
+    font-size: 14px;
+}
+
+.search-box button {
+    border: none;
+    background: transparent;
+
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.header-right {
+    color: #64748b;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   3. MAIN CONTAINER
+============================== */
+
+.container {
+    max-width: 1150px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+
+/* ==============================
+   4. WELCOME
+============================== */
+
+.welcome {
+    background: linear-gradient(
+        120deg,
+        #1e40af,
+        #3b82f6
+    );
+
+    color: white;
+
+    padding: 55px 50px;
+    border-radius: 18px;
+
+    margin-bottom: 40px;
+}
+
+.welcome-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.welcome h1 {
+    font-size: 38px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.welcome-description {
+    max-width: 500px;
+    line-height: 1.7;
+    color: #dbeafe;
+}
+
+
+/* ==============================
+   5. SECTION HEADING
+============================== */
+
+.section-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 60px;
-    padding: 10px 25px; 
+
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    margin-bottom: 7px;
+}
+
+.section-heading p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ==============================
+   6. CATEGORIES
+============================== */
+
+.categories {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+}
+
+.category {
+    padding: 10px 20px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 25px;
+
     background-color: white;
-}
-.nav-item{
-    display: flex; 
-    color: black;
-    position: relative;
+    color: #475569;
+
     cursor: pointer;
-    transition-duration: 0.3s;
+
+    transition: 0.2s;
 }
-.nav-item:hover{
+
+.category:hover {
     color: #2563eb;
-    transform: scale(1.1);
+    border-color: #2563eb;
 }
-.nav-item::after{
-    content: '';
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 2px;
-    left : 0;
-    bottom: -5px;
+
+.category.active {
     background-color: #2563eb;
-    transition-duration: 0.3s;
-    transform: scaleX(0);
-    transform-origin: center;
+    color: white;
+    border-color: #2563eb;
 }
-.nav-item:hover::after{
-    transform: scaleX(1);
+
+
+/* ==============================
+   7. NEWS GRID
+============================== */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.news-card {
+    background-color: white;
+
+    border-radius: 14px;
+    overflow: hidden;
+
+    border: 1px solid #e2e8f0;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.news-image {
+    width: 100%;
+    height: 190px;
+
+    object-fit: cover;
+    display: block;
+}
+
+.news-content {
+    padding: 18px;
+}
+
+.news-category {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.news-title {
+    font-size: 18px;
+    line-height: 1.4;
+
+    margin: 10px 0;
+}
+
+.news-summary {
+    font-size: 14px;
+    line-height: 1.6;
+
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+    color: #94a3b8;
+
+    border-top: 1px solid #f1f5f9;
+    padding-top: 13px;
+}
+
+.news-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.news-actions button {
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.news-actions button.active {
+    color: #2563eb;
+}
+
+
+/* ==============================
+   8. OPEN FEED BUTTON
+============================== */
+
+.feed-open-btn {
+    padding: 11px 18px;
+
+    background-color: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.feed-open-btn:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* ==============================
+   9. FEED VIEW
+============================== */
+
+.feed-view {
+    margin-top: 25px;
+}
+
+.feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.feed-close-btn {
+    padding: 9px 15px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   10. VERTICAL FEED
+============================== */
+
+.feed-container {
+    height: 75vh;
+    min-height: 450px;
+
+    overflow-y: auto;
+
+    scroll-snap-type: y mandatory;
+
+    border-radius: 16px;
+    background-color: #0f172a;
+}
+
+.feed-item {
+    height: 100%;
+    min-height: 450px;
+
+    position: relative;
+
+    scroll-snap-align: start;
+    overflow: hidden;
+
+    color: white;
+    background-color: #1e293b;
+}
+
+.feed-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+    inset: 0;
+}
+
+.feed-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.05) 75%
+    );
+}
+
+.feed-content {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 30px;
+    z-index: 1;
+}
+
+.feed-content .news-category {
+    color: #93c5fd;
+}
+
+.feed-content h2 {
+    font-size: 27px;
+    line-height: 1.4;
+
+    margin: 12px 0;
+
+    max-width: 700px;
+}
+
+.feed-content p {
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: #e2e8f0;
+    max-width: 650px;
+}
+
+.feed-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.feed-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.feed-actions button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.feed-actions button:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.feed-actions button.active {
+    background-color: #2563eb;
+}
+
+
+/* ==============================
+   11. EMPTY MESSAGE
+============================== */
+
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+}
+
+
+/* ==============================
+   12. FOOTER
+============================== */
+
+.footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   13. RESPONSIVE
+============================== */
+
+@media (max-width: 850px) {
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .header {
+        padding: 0 4%;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .header {
+        padding: 0 15px;
+        height: 65px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .search-box {
+        width: 55%;
+    }
+
+    .welcome {
+        padding: 35px 25px;
+    }
+
+    .welcome h1 {
+        font-size: 29px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .feed-container {
+        height: 70vh;
+        min-height: 400px;
+    }
+
+    .feed-content {
+        padding: 20px;
+    }
+
+    .feed-content h2 {
+        font-size: 21px;
+    }
+
+    .feed-content p {
+        font-size: 13px;
+    }
+
 }
